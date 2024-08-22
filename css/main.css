@@ -1,0 +1,65 @@
+/* main.css */
+
+/* Variables */
+:root {
+    --font-stack: Arial, sans-serif;
+    --background-color: #0d0c1d;
+    --forepage-color: #161b33;
+    --light-accent-color: #f1dac4;
+    --purple-accent-color: #a69cac;
+    --dark-accent-color: #474973;
+    --text-color: #333;
+    --subtext-color: #666;
+    --main-bg-color: #ffffff;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --halo-shadow: 0 0 7px 3px var(--dark-accent-color); /* Halo effect */
+    --landing-page-width: 98%; /* Offset for max-width */
+    --height-percentage: 92vh; /* Height as a percentage of viewport height */
+    --padding-vertical: 20px; /* Vertical padding */
+    --padding-horizontal: 20px; /* Horizontal padding */
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: var(--font-stack);
+    background-color: var(--background-color);
+}
+
+/* Layout Styles */
+.landing-page {
+    text-align: center;
+    background-color: var(--forepage-color);
+    padding: var(--padding-vertical) var(--padding-horizontal); /* Top/Bottom and Left/Right padding */
+    border-radius: 25px;
+    box-shadow: var(--box-shadow), var(--halo-shadow); /* Halo effect added */
+    margin: auto;
+    margin-top: 1%;
+    max-width: var(--landing-page-width); /* Dynamic max-width */
+    height: var(--height-percentage); /* Height as a percentage of viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    box-sizing: border-box; /* Ensure padding is included in the height calculation */
+}
+
+/* Components Styles */
+.intro {
+    margin-bottom: 20px;
+}
+
+.intro h1 {
+    font-size: 2em;
+    margin: 0;
+    color: var(--light-accent-color);
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: var(--purple-accent-color);
+}
+
+.name {
+    font-size: 1em;
+    color: var(--text-color);
+}
