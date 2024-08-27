@@ -50,6 +50,10 @@ body {
     background-color: var(--background-color);
 }
 
+.hidden{
+    display: none;
+}
+
 .background{
     width: 100vw;
     height: 100vh;
@@ -74,6 +78,7 @@ body {
     position: absolute;
     width: 23vw;
     height: 23vw;
+    transition: transform 1s ease-in-out;
 }
 .blobglow{
     filter: blur(2vw);
@@ -138,10 +143,6 @@ body {
     color: var(--light-accent-color);
 }
 
-.typewriter{
-
-}
-
 .typewriter .text{
     position: relative;
     color: var(--purple-accent-color);
@@ -178,15 +179,12 @@ body {
         width:0%;
     }
 
-    100%{
+    95%, 100%{
         left: 0%;
         width:100%;
         border-color: white;
     }
 }
-
-
-
 
 .name {
     font-size: 1em;
@@ -204,7 +202,7 @@ body {
 }
 
 /* Styling for the container using Flexbox */
-.container {
+.big-box-container {
     margin-top: 1%;
     margin-bottom: 1vw;
     margin-left:0;
@@ -218,17 +216,56 @@ body {
     height: 90vh;
 }
 
-
+.big-box-container a{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: calc(var(--outside-border-radius) - 2px);
+}
 
 .box {
     aspect-ratio: 1;
     flex: 1 1 calc(50% - 2vw); /* Flex-grow, flex-shrink, and width calculation */
-
-    border-radius: var(--outside-border-radius);
-    padding: 20px;
-    
+    border-radius: var(--outside-border-radius);  
     box-sizing: border-box;
     text-align: center;
+}
+.box h1{
+    font-size: 2vw;
+}
+
+.box a:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.small-box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+    padding: 0.375;
+    justify-content: center;
+    background-color: none;
+}
+
+.small-box-container a{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.fa-square-github{
+    font-size: 6vw;
+    color: var(--light-accent-color);
+}
+
+.fa-linkedin{
+    font-size: 6vw;
+    color: var(--light-accent-color)
 }
 
 .about{
@@ -267,20 +304,43 @@ body {
 
 /* -------------------------------------------------------------------------------------------------------------------------*/
 
+.projects-heading{
+    margin: 2vw;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-heading h1 {
+    font-size: 4vw; /* Responsive font size */
+    margin: 0;
+    color: var(--light-accent-color);
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------*/
 
 .sticky-navbar {
     position: fixed;
     bottom: 20px; /* Adds space between the bottom of the navbar and the bottom of the viewport */
     width: 50%; /* Adjusts width to account for padding on the sides */
     left: 50%; /* Move the left edge to the center of the viewport */
-    transform: translateX(-50%); /* Offset the width to center align */
+    transform: translateX(-50%); /* Combine horizontal centering and vertical sliding */
     display: flex;
-    padding: 10px;
+    padding: 3px;
     box-sizing: border-box;
     z-index: 1000; /* Ensures it stays above other content */
     border-radius: 8px; /* Optional rounded corners */
     backdrop-filter: blur(5px); /* Applies a blur effect */
     background: rgba(255, 255, 255, 0.07); /* White background with opacity for the blur effect */
+    opacity: 0; /* Start fully transparent */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition for both transform and opacity */
+}
+
+.sticky-navbar:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
 }
 
 .sticky-navbar ul {
@@ -293,8 +353,18 @@ body {
 }
 
 .sticky-navbar li {
-    margin: 0 15px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: white;
+}
 
+.sticky-navbar li:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.sticky-navbar .active {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight color */
+    color: white; /* Text color for the active item */
+    font-weight: bold;
 }
 
 .sticky-navbar a {
@@ -303,6 +373,72 @@ body {
     font-size: 16px;
 }
 
-.sticky-navbar a:hover {
-    color: #007bff; /* Change color on hover */
+
+.tooltip{
+    position: relative;
+    cursor: pointer;
+    padding: 7px;
 }
+.tooltipText{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 5vw;
+    transform: translateX(-50%);
+    color: #fff;
+    white-space: nowrap;
+    padding: 10px 15px;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    border-radius: 5px;
+    visibility: hidden;
+}
+.tooltipTextBottom{
+    border-top-right-radius: 0%;
+    border-top-left-radius: 0%;
+}
+.tooltipTextTop{
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.tooltip a{
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip:hover .tooltipTextBottom{
+    top:-145%;
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip:hover .tooltipTextTop{
+    top:-270%;
+    visibility: visible;
+    opacity: 1;
+}
+.tooltipText:hover{
+    top:-145%;
+    visibility: visible;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.resume-page .tooltipText{
+    background-color: rgb(255, 255, 255, 0.9); /* Replace #yourColor with the desired color */
+    color: #000;
+}
+
+.fa-github{
+    padding-right: 10px;
+}
+.fa-linkedin-in{
+    padding-right: 10px;
+}
+
+.resume-page .fa-github{
+    color: #000;
+}
+.resume-page .fa-linkedin-in{
+    color: #000;
+}
+

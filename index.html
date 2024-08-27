@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -144,39 +145,52 @@
 					const textLoad = () => {
 						setTimeout(() =>{
 							text.textContent = "Mechatronics Student @ UW"
-							text.style.setProperty('--text-length', secText.textContent.length);	
+							text.style.setProperty('--text-length', text.textContent.length);	
 						}, 0);
 						setTimeout(() =>{
 							text.textContent = "Strong Leader"
-							text.style.setProperty('--text-length', secText.textContent.length);	
+							text.style.setProperty('--text-length', text.textContent.length);	
 						}, 7000);
 						setTimeout(() =>{
 							text.textContent = "Problem Solver"	
-							text.style.setProperty('--text-length', secText.textContent.length);	
-						}, 14001);
+							text.style.setProperty('--text-length', text.textContent.length);	
+						}, 14000);
 
 					}
 					textLoad()
-					setInterval(textLoad, 21001)
+					setInterval(textLoad, 21000)
 				</script>
 			</div>
         </div>
     </div>
     <div class="main-content">
-        <div class="container">
-            <div class="box box1 glass">
-            	<h1>Projects</h1>
+		
+        <div class="big-box-container">
+            <div class="box glass">
+				<a href="projects.html"><h1>Projects</h1></a>	
             </div>
-            <div class="box box2 glass">
-            	<h1>Extracurriculars</h1>
+            <div class="box glass">
+            	<a href="extracurricular.html"><h1>Extracurriculars</h1></a>
             </div>
-            <div class="box box3 glass">
-            	<h1>Resume</h1>
+            <div class="box glass">
+            	<a href="resume.html"><h1>Resume</h1></a>
             </div>
-            <div class="box box4 glass">
-            	<h1>LinkedIn</h1>
+            <div class="box small-box-container">
+					<div class="box box1 glass">	
+						<a href="https://github.com/harsharan-r" target=”_blank”><i class="fa-brands fa-square-github"></i></a>
+					</div>
+					<div class="box box2 glass">
+						<a href="https://www.linkedin.com/in/harsharanr/" target=”_blank”><i class="fa-brands fa-linkedin"></i></a>
+					</div>
+					<div class="box box3 glass">
+
+					</div>
+					<div class="box box1 glass">
+
+					</div>
             </div>
         </div>
+
         <div class="about">
         	<div class="textbox glass">
         		<h1>About Me</h1>
@@ -185,13 +199,20 @@
     </div>
     <nav class="sticky-navbar glass">
         <ul>
-            <li><a href="#">Home</a></li>
-			<li><a href="#">Projects</a></li>
-            <li><a href="#">Extracurriculars</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="#">Other Links</a></li>
+            <a href="index.html"><li>Home</li></a>
+			<a href="projects.html"><li>Projects</li></a>
+            <a href="extracurricular.html"><li>Extracurriculars</li></a>
+            <a href="resume.html"><li>Resume</li></a>
+
+			<li class="tooltip">
+				<span>Other Links</span>
+				<a href="https://github.com/harsharan-r" target=”_blank”><span class="tooltipText tooltipTextBottom glass"><i class="fa-brands fa-github"></i>Github</span></a>
+				<a href="https://www.linkedin.com/in/harsharanr/" target=”_blank”><span class="tooltipText tooltipTextTop glass"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</span></a>
+			</li>
+
         </ul>
     </nav>
+    <script src="navbar.js"></script>
     </div>
 </body>
 </html>
