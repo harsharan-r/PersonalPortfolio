@@ -41,7 +41,6 @@
  				 </path>
 			</svg>
 		</div>
-		<!-- glow affects -->
 
 		<div class="blob blob1 blobglow">
 			
@@ -99,7 +98,6 @@
  				 </path>
 			</svg>
 		</div>
-		<!-- glow affects -->
 
 		<div class="blob blob2 blobglow">
 			
@@ -128,47 +126,70 @@
  				 </path>
 			</svg>
 		</div>
-
-
-
 	</div>	
-    <div class="landing-page">
+	
+    <div class="landing-page glass">
         <div class="left-side">
             <img src="images/intro.jpg" alt="A description of the image">
         </div>
         <div class="intro">
             <h1>HI!</h1>
             <h1>My Name is Harsharan</h1>
-            <p>I'm a mechatronics student at university of waterloo</p>
+			<div class="typewriter">
+				<span class="text first-text">I'm a </span>
+				<span class="text sec-text"> Mechatronics</span>
+
+				<script>
+					const text = document.querySelector(".sec-text");
+					const textLoad = () => {
+						setTimeout(() =>{
+							text.textContent = "Mechatronics Student @ UW"
+							text.style.setProperty('--text-length', secText.textContent.length);	
+						}, 0);
+						setTimeout(() =>{
+							text.textContent = "Strong Leader"
+							text.style.setProperty('--text-length', secText.textContent.length);	
+						}, 7000);
+						setTimeout(() =>{
+							text.textContent = "Problem Solver"	
+							text.style.setProperty('--text-length', secText.textContent.length);	
+						}, 14001);
+
+					}
+					textLoad()
+					setInterval(textLoad, 21001)
+				</script>
+			</div>
         </div>
     </div>
     <div class="main-content">
         <div class="container">
-            <div class="box box1">
+            <div class="box box1 glass">
             	<h1>Projects</h1>
             </div>
-            <div class="box box2">
+            <div class="box box2 glass">
             	<h1>Extracurriculars</h1>
             </div>
-            <div class="box box3">
+            <div class="box box3 glass">
             	<h1>Resume</h1>
             </div>
-            <div class="box box4">
+            <div class="box box4 glass">
             	<h1>LinkedIn</h1>
             </div>
         </div>
         <div class="about">
-        	<div class="textbox">
+        	<div class="textbox glass">
         		<h1>About Me</h1>
         	</div>
         </div>
     </div>
-    <nav class="sticky-navbar">
+    <nav class="sticky-navbar glass">
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+			<li><a href="#">Projects</a></li>
+            <li><a href="#">Extracurriculars</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="#">Other Links</a></li>
         </ul>
     </nav>
     </div>
